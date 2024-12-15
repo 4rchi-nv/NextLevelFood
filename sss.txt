@@ -1,0 +1,28 @@
+challenge:
+	render pages:
+		/meals
+		/meals/share
+		/community
+		/meals/<some slug>
+
+adding header
+styling header
+using Image
+    https://nextjs.org/docs/app/api-reference/components/image
+    format convertion
+    priority prop
+header for first page
+slideshow compo
+    error with server compo
+    rsc and client compo
+    console.log :)
+    use client
+
+community page
+nav active link
+    usePathname
+
+чем ниже use client - тем лучше
+meals page
+meals grid compo
+meal-item

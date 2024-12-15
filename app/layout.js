@@ -1,3 +1,4 @@
+import MainHeader from '@/components/MainHeader';
 import './globals.css';
 
 export const metadata = {

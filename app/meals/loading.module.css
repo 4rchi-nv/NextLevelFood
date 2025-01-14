@@ -1,0 +1,16 @@
+.loading {
+    text-align: center;
+    animation: loader infinite .5s ease-out;
+}
+
+@keyframes loader {
+    0% {
+        color: #fff;
+    }
+    50% {
+        color: #f8c22d;
+    }
+    100% {
+        color: #fff;
+    }
+}

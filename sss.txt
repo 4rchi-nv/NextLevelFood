@@ -26,3 +26,24 @@ nav active link
 meals page
 meals grid compo
 meal-item
+
+adding better-sqlite3
+node initdb.js
+getMeals fn
+
+task: adding loader
+    1. loading.js
+    2. Suspense
+loading with suspense
+
+task: error handling
+not found handling
+
+meals detail page
+getMeal fn
+
+task: adding line breaks of instructions
+notFound fn
+
+share page
+use server

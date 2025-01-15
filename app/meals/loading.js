@@ -1,3 +1,5 @@
+import classes from "./loading.module.css";
+
 export default function LoadingMealsPage() {
-  return <p>Loading meals... Please wait</p>;
+  return <p className={classes.loading}>Loading meals... Please wait</p>;
 }

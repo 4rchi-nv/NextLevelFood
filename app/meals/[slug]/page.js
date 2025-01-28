@@ -3,18 +3,22 @@ import getMeal from "@/libs/getMeal";
 import LoadingMealsPage from "../loading-minus";
 import classes from "./page.module.css";
 import TextTransformator from "@/helpers/text_transformator";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 
 async function MealDetailsPage({ params }) {
   try {
     // Fetch the meal data
+    const meal = await getMeal(params);
     const {
       title,
       creator,
       creator_email,
       description,
       summary,
+      image,
       instructions,
-    } = await getMeal(params);
+    } = meal;
     // Render the meal details dynamically
     return (
       <div className={classes["meal-container"]}>
@@ -28,7 +32,14 @@ async function MealDetailsPage({ params }) {
           >
             {creator_email}
           </a>
+          <br />
+          <a href={`tel:${88005353535}`} className={classes["creator-email"]}>
+            {"vosemvosemsot"}
+          </a>
         </p>
+        <div className={classes["image-container"]}>
+          <Image className={classes["image"]} src={image} alt={title} fill />
+        </div>
         <p className={classes["meal-description"]}>{description}</p>
         <div className={classes["meal-summary"]}>
           <h3>Summary:</h3>
@@ -43,13 +54,18 @@ async function MealDetailsPage({ params }) {
             <pre>{instructions}</pre>
           </p> */}
           {/** 33333333333333333333333333333333333 */}
-          {TextTransformator(instructions)}
+          <p
+            dangerouslySetInnerHTML={{
+              __html: TextTransformator(instructions),
+            }}
+          ></p>
         </div>
       </div>
     );
   } catch (error) {
     console.error("Error loading meal details:", error);
-    return <p>Failed to load meal details. Please try again later.</p>;
+    notFound();
+    // return <p>Failed to load meal details. Please try again later.</p>;
   }
 }
 

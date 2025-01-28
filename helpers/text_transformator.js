@@ -1,5 +1,5 @@
 export default function TextTransformator(text) {
-    // return text.replace(/\n/g, "<br/>");
+    return text.replace(/\n/g, "<br/>");
     const arr = text.split('\n');
     console.log(1111,arr)
     return (<p>

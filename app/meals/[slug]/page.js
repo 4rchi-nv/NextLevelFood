@@ -8,12 +8,14 @@ import { notFound } from "next/navigation";
 async function MealDetailsPage({ params }) {
   try {
     // Fetch the meal data
+    const meal = await getMeal(params);
     const {
       title,
       creator,
       creator_email,
       description,
       summary,
+      image,
       instructions,
       image,
     } = await getMeal(params);
@@ -64,6 +66,8 @@ async function MealDetailsPage({ params }) {
     );
   } catch (error) {
     console.error("Error loading meal details:", error);
+    notFound();
+    // return <p>Failed to load meal details. Please try again later.</p>;
     notFound();
     // return <p>Failed to load meal details. Please try again later.</p>;
   }

@@ -4,7 +4,7 @@ const db = sql("meals.db");
 
 export default async function getMeals() {
   try{
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
     const meals = db.prepare("SELECT * FROM meals").all();
     return meals;
   } catch (error) {

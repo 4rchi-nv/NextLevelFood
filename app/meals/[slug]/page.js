@@ -2,8 +2,9 @@ import { Suspense } from "react";
 import getMeal from "@/libs/getMeal";
 import LoadingMealsPage from "../loading-minus";
 import classes from "./page.module.css";
-import TextTransformator from "@/helpers/text_transformator";
-
+// import TextTransformator from "@/helpers/text_transformator";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 async function MealDetailsPage({ params }) {
   try {
     // Fetch the meal data
@@ -14,7 +15,9 @@ async function MealDetailsPage({ params }) {
       description,
       summary,
       instructions,
+      image,
     } = await getMeal(params);
+
     // Render the meal details dynamically
     return (
       <div className={classes["meal-container"]}>
@@ -28,7 +31,15 @@ async function MealDetailsPage({ params }) {
           >
             {creator_email}
           </a>
+          <a href={`tel:${+88005553535}`} className={classes["creator-email"]}>
+            Лучше позвонить чем у кого-то занимать
+          </a>
         </p>
+
+        <div className={classes["image-container"]}>
+          <Image src={image} alt={title} width={400} height={300} />
+        </div>
+
         <p className={classes["meal-description"]}>{description}</p>
         <div className={classes["meal-summary"]}>
           <h3>Summary:</h3>
@@ -43,16 +54,20 @@ async function MealDetailsPage({ params }) {
             <pre>{instructions}</pre>
           </p> */}
           {/** 33333333333333333333333333333333333 */}
-          {TextTransformator(instructions)}
+          <p
+            dangerouslySetInnerHTML={{
+              __html: instructions ? instructions.replace(/\n/g, "<br/>") : "",
+            }}
+          ></p>
         </div>
       </div>
     );
   } catch (error) {
     console.error("Error loading meal details:", error);
-    return <p>Failed to load meal details. Please try again later.</p>;
+    notFound();
+    // return <p>Failed to load meal details. Please try again later.</p>;
   }
 }
-
 export default function MealPage({ params }) {
   return (
     <Suspense fallback={<LoadingMealsPage />}>

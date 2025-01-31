@@ -6,7 +6,7 @@ export default async function getMeal({ slug }) {
   try {
     // await new Promise((resolve) => setTimeout(resolve, 2000));
     const meal = db.prepare(`SELECT * FROM meals WHERE slug = ?`).get(slug);
-    console.log(meal)
+    // console.log(meal);
     return meal;
   } catch (error) {
     throw new Error(

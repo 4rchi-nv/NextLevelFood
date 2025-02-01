@@ -18,7 +18,6 @@ export default function ImagePicker({ label }) {
           name="image"
           accept=".jpg,.jpeg,.png"
           className={classes.input}
-          
         />
         <button onClick={handleImage} className={classes.button} type="button">
           Pick Image

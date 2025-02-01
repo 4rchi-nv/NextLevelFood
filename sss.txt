@@ -46,4 +46,21 @@ task: adding line breaks of instructions
 notFound fn
 
 share page
+filereader
+state for image
+ui rendering the preview
+
 use server
+formData
+Image props
+consoling data
+
+use client vs use server
+
+slugify 
+xss
+
+saveMeals fn
+img saving
+fs
+db.prepare

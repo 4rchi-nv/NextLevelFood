@@ -1,4 +1,3 @@
-'use client'
 import classes from "./page.module.css";
 import ImagePicker from '../../../components/ImagePicker';
 import handleForm from "@/helpers/handleForm";
@@ -7,7 +6,7 @@ export default function ShareMealPage() {
         event.preventDefault(); // Предотвращаем перезагрузку страницы
         const formData = new FormData(event.target);
         const formDataObj = handleForm(formData);
-        console.log("Отправка формы:", formDataObj);
+        console.log("Отправка формы:", formDataObj); 
         try{
             const response = await fetch('/api/share-meal', {
                 method: 'POST',

@@ -53,7 +53,7 @@ export default async function handleMealSubmit(formData) {
 
     const info = stmt.run(meal);
     console.log(info);
-    redirect("/meals");
+    // redirect("/meals");
   } catch (error) {
     console.error(error);
     throw new Error("Meal submission failed.");

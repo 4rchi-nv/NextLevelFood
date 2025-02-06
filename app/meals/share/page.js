@@ -1,7 +1,7 @@
 'use client'
 import classes from "./page.module.css";
 import ImagePicker from "@/components/ImagePicker";
-import SubmitBtn from "@/components/submitBtn";
+import SubmitBtn from "@/components/SubmitBtn";
 import handleMealSubmit from "@/libs/handleMealSubmit";
 export default function ShareMealPage() {
     return (
@@ -13,7 +13,7 @@ export default function ShareMealPage() {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={classes.main}>
-        <form className={classes.form}>
+        <form className={classes.form} action={handleMealSubmit}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>

@@ -13,7 +13,7 @@ export default function ShareMealPage() {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={classes.main}>
-        <form action={handleMealSubmit} className={classes.form}>
+        <form className={classes.form}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
